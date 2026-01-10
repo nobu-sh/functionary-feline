@@ -17,6 +17,7 @@ export class CustomClient<Ready extends boolean = boolean> extends Client<Ready>
   }
 
   public removeInterval(interval: NodeJS.Timeout): void {
+    clearInterval(interval); // just in case
     this._intervals.delete(interval);
   }
 

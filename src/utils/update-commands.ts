@@ -37,7 +37,8 @@ function normalizeOption(option: APIApplicationCommandOption): any {
     name_localizations: option.name_localizations ?? undefined,
     description: option.description,
     description_localizations: option.description_localizations ?? undefined,
-    required: option.required ?? undefined,
+    // API treats not required as undefined/false interchangeably I guess.
+    required: option.required || undefined,
   };
 
   switch (option.type) {

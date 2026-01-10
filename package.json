@@ -1,7 +1,7 @@
 {
   "name": "functionary-feline",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "license": "UNLICENSED",
   "main": "build/main.js",
   "engines": {

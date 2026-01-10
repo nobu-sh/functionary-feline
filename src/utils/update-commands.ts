@@ -91,7 +91,8 @@ export function fingerprintCommand(cmd: RESTPostAPIChatInputApplicationCommandsJ
     options: cmd.options?.map(normalizeOption),
     default_member_permissions: cmd.default_member_permissions ?? undefined,
     nsfw: cmd.nsfw ?? false,
-    integration_types: cmd.integration_types ? [...cmd.integration_types].sort((a, b) => a - b) : undefined,
+    // during global api returns something different?
+    // integration_types: cmd.integration_types ? [...cmd.integration_types].sort((a, b) => a - b) : undefined,
     // set-like: sort numeric (Discord may not guarantee order)
     contexts: cmd.contexts ? [...cmd.contexts].sort((a, b) => a - b) : undefined,
     handler: cmd.handler ?? undefined,

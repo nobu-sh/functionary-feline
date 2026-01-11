@@ -20,6 +20,7 @@ export default event(Events.ClientReady, () => {
   logger.info(`logged in as ${client.user!.tag}!`);
 
   // Register the interval. Cleanup will handle stopping intervals.
+  updateStatus();
   client.registerInterval(setInterval(() => {
     updateStatus();
   }, 30_000));

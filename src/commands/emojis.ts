@@ -101,7 +101,7 @@ function downloadProgressMessage({ current, total, failed, success }: DownloadPr
   return createFileMessage({
     attachment: new AttachmentBuilder(buffer, {
       name: `emojis-${time.getTime()}.zip`,
-      description: `Contains ${success} emojis requested for download at ${time.toLocaleString()}`,
+      description: `Contains ${success.length} emojis requested for download at ${time.toLocaleString()}`,
     }),
     header,
     footer,

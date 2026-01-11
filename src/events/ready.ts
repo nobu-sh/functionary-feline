@@ -9,15 +9,18 @@ const statuses = new CircularBuffer([
   "meow meow meow",
 ]);
 
+function updateStatus() {
+  client.user!.setActivity({
+    name: `${statuses.next()} | v${packageJson.version}`,
+    type: ActivityType.Watching,
+  });
+}
+
 export default event(Events.ClientReady, () => {
   logger.info(`logged in as ${client.user!.tag}!`);
 
   // Register the interval. Cleanup will handle stopping intervals.
   client.registerInterval(setInterval(() => {
-    // Set status
-    client.user!.setActivity({
-      name: `${statuses.next()} | v${packageJson.version}`,
-      type: ActivityType.Watching,
-    });
+    updateStatus();
   }, 30_000));
 });
